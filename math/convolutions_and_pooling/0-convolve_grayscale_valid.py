@@ -1,4 +1,4 @@
-#!/usr/bin/env python3`
+#!/usr/bin/env python3
 import numpy as np
 
 def convolve_grayscale_valid(images, kernel):
@@ -13,3 +13,4 @@ def convolve_grayscale_valid(images, kernel):
             output[:, i, j] = np.sum(images[:, i:i+kh, j:j+kw] * kernel, axis=(1, 2))
 
     return output
+
