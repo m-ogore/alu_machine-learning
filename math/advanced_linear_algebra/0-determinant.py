@@ -53,3 +53,8 @@ def determinant(matrix):
 
     return det
 
+# Example usage:
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+det = determinant(matrix)
+print "Determinant of the matrix is:", det
+
