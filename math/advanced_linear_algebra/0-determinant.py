@@ -24,37 +24,32 @@ def determinant(matrix):
     determinant = np.linalg.det(matrix)
     return determinant
    '''            
-def minor(matrix, row, col):
-    # Helper function to obtain the minor matrix after removing the specified row and column
-    return [row[:col] + row[col + 1:] for row in (matrix[:row] + matrix[row + 1:])]
-
 def determinant(matrix):
-    # Check if the input matrix is a list of lists
     if not isinstance(matrix, list) or not all(isinstance(row, list) for row in matrix):
-        raise ValueError('matrix must be a list of lists')
+        raise TypeError('matrix must be a list of lists')
 
-    # Check if the matrix is square
     num_rows = len(matrix)
     num_cols = len(matrix[0])
-    if num_rows != num_cols:
-        raise ValueError('Matrix is not square')
 
-    # Base case: If the matrix is 1x1, return the single element
-    if num_rows == 1:
+    if num_rows != num_cols:
+        raise ValueError('matrix must be a square matrix')
+
+    if num_rows == 0:  # Special case for a 0x0 matrix
+        return 1
+
+    if num_rows == 1:  # Special case for a 1x1 matrix
         return matrix[0][0]
 
-    # Base case: If the matrix is 2x2, return the determinant using the cross-product method
-    if num_rows == 2:
+    if num_rows == 2:  # Special case for a 2x2 matrix
         return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
 
     det = 0
     for col in range(num_cols):
-        det += matrix[0][col] * determinant(minor(matrix, 0, col)) * (-1) ** col
+        submatrix = [row[:col] + row[col+1:] for row in matrix[1:]]
+        cofactor = matrix[0][col] * determinant(submatrix)
+        if col % 2 == 0:  # Add for even columns, subtract for odd columns
+            det += cofactor
+        else:
+            det -= cofactor
 
     return det
-
-# Example usage:
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-det = determinant(matrix)
-print "Determinant of the matrix is:", det
-
