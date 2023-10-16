@@ -8,10 +8,8 @@ def mean_cov(X):
     X=np.array(X)
     #n is the number of data points
     #d is the number of dimensions in each data point
-    n = len(X)
-    d=len(X[0])
 
-    X.shape=(n,d)
+    (n,d)=X.shape
 
     #If X is not a 2D numpy.ndarray, raise a TypeError with the message X must be a 2D numpy.ndarray
     #if X.ndim != 2:
