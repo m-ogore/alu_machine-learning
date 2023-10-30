@@ -20,6 +20,12 @@ def mean_cov(X):
          raise ValueError("X must contain multiple data points")
     #Calculate the mean for each dimension:
     mean = np.mean(X, axis=0, keepdims=True)
+
+    print((X - mean).shape)
     #Calculate the covariance matrix:
-    cov = np.matmul((X - mean).T, X - mean) / (n - 1)
+    #cov = np.matmul((X - mean).T, X - mean) / (n - 1)
+    sub_x = [i - mean for i in X]
+    sum_value = sum([sub_x[i].T*sub_x[i] for i in range(len(X))])
+    cov= sum_value/(n-1)
+    
     return mean,cov
