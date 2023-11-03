@@ -2,12 +2,13 @@
 #!/usr/bin/env python3
 
 import numpy as np
+import math
 def likelihood(x, n, P):
     #n must be a positive integer
     if n < 1:
         raise ValueError('n must be a positive integer') 
     #x must be an integer that is greater than or equal to 0
-    if x <= 0:
+    if not isinstance(x,int) > 0:
         raise ValueError('x must be an integer that is greater than or equal to 0')
     
     #xmust be less than n
@@ -28,5 +29,7 @@ def likelihood(x, n, P):
         #for i, p in enumerate(P):
         # Calculate the binomial probability using the formula
         likelihoods[i] = np.math.comb(n, x) * p**x * (1-p)**(n-x)
+        #likelihoods[i] = (math.factorial(n)/(math.factorial(n)*math.factorial(n-x))) * p**x * (1-p)**(n-x)
+    
     
     return likelihoods
