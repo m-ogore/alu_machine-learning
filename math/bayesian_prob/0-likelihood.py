@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import numpy as np
-#import math
 
 def likelihood(x, n, P):
     # n must be a positive integer
