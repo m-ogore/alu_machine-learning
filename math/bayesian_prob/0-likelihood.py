@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import numpy as np
 
 def likelihood(x, n, P):
@@ -26,7 +24,10 @@ def likelihood(x, n, P):
         if p < 0 or p > 1:
             raise ValueError('All values in P must be in the range [0, 1]')
 
-        # Calculate the binomial probability using the formula
-        likelihoods[i] = np.math.comb(n, x) * p**x * (1 - p)**(n - x)
+        # Calculate the binomial coefficient using NumPy
+        binomial_coefficient = np.math.factorial(n) / (np.math.factorial(x) * np.math.factorial(n - x))
+
+        # Calculate the binomial probability using the binomial coefficient
+        likelihoods[i] = binomial_coefficient * p**x * (1 - p)**(n - x)
 
     return likelihoods
