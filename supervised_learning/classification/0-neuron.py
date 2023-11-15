@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-from numpy import random
+
+import numpy as np
 
 '''
 class constructor: def __init__(self, nx):
