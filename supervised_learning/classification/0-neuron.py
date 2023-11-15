@@ -16,6 +16,16 @@ A: The activated output of the neuron (prediction). Upon instantiation, it shoul
 '''
 class Neuron:
     def __init__(self, nx):
+        """
+        Initializes the object with the given nx value.
+
+        Parameters:
+            nx (int): The value to initialize nx with.
+
+        Raises:
+            TypeError: If nx is not an integer.
+            ValueError: If nx is less than 1.
+        """
         if not isinstance(nx, int):
             raise TypeError('nx must be an integer')
         if nx < 1:
@@ -25,16 +35,4 @@ class Neuron:
         self.W = np.random.normal(size=(nx,))
         self.b = 0
         self.A = 0
-lib_train = np.load('../data/Binary_Train.npz') #/home/seer/alu-machine_learning/supervised_learning/data
-X_3D, Y = lib_train['X'], lib_train['Y']
-X = X_3D.reshape((X_3D.shape[0], -1)).T
-
-np.random.seed(0)
-neuron = Neuron(X.shape[0])
-print(neuron.W)
-print(neuron.W.shape)
-print(neuron.b)
-print(neuron.A)
-neuron.A = 10
-print(neuron.A)
 
