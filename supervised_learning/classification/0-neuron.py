@@ -24,7 +24,7 @@ class Neuron:
         if self.nx < 0:
             raise ValueError('nx must be a positive integer')
         
-        self.w = random.normal()
+        self.w = np.random.normal()
         self.b = 0
         self.A = 0
 
