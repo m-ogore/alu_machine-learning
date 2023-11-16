@@ -39,12 +39,12 @@ class Neuron:
         #X is a numpy.ndarray with shape (nx, m) that contains the input data
         # nx is the number of input features to the neuron
         # m is the number of examples
-        
+
 
         self.nx = X.shape[0]
         m = X.shape[1]
 
         X = np.ndarray((self.nx, m))
         z =  z = np.matmul(self.__W, X) + self.__b
-        A =  A = 1 / (1 + np.exp(-z))
+        self.__A =1 / (1 + np.exp(-z))
         return A        
