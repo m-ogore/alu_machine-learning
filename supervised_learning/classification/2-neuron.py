@@ -4,16 +4,16 @@ import numpy as np
 
 class Neuron:
     def __init__(self, nx):
-        """
-        Initializes the object with the given nx value.
+        
+        #Initializes the object with the given nx value.
 
-        Parameters:
-            nx (int): The value to initialize nx with.
+        #Parameters:
+        #    nx (int): The value to initialize nx with.
 
-        Raises:
-            TypeError: If nx is not an integer.
-            ValueError: If nx is less than 1.
-        """
+        #Raises:
+        #   TypeError: If nx is not an integer.
+        #  ValueError: If nx is less than 1.
+        
         if not isinstance(nx, int):
             raise TypeError('nx must be an integer')
         if nx < 1:
@@ -26,26 +26,22 @@ class Neuron:
 
     @property
     def W(self):
-        """
-        Get the value of the property W.
+        
+        #Get the value of the property W.
 
-        :return: The value of the property W.
-        """
         return self.__W
 
     @property
     def b(self):
-        """
-        Get the value of the 'b' property.
-        """
+        
+        #Get the value of the 'b' property.
+        
         return self.__b
 
     def A(self):
-        """
-        Returns the value of the private attribute __A.
+        
+        #Returns the value of the private attribute __A.
 
-        :return: The value of the private attribute __A.
-        """
         return self.__A
 
     def forward_prop(self, X):
