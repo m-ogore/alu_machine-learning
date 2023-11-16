@@ -26,16 +26,40 @@ class Neuron:
 
     @property
     def W(self):
+        """
+        Get the value of the property W.
+
+        :return: The value of the property W.
+        """
         return self.__W
 
     @property
     def b(self):
+        """
+        Get the value of the 'b' property.
+        """
         return self.__b
 
     def A(self):
+        """
+        Returns the value of the private attribute __A.
+
+        :return: The value of the private attribute __A.
+        """
         return self.__A
 
     def forward_prop(self, X):
+        """
+        Performs forward propagation on the given input data.
+
+        Parameters:
+            X (numpy.ndarray): The input data with shape (nx, m).
+                nx (int): The number of input features to the neuron.
+                m (int): The number of examples.
+
+        Returns:
+            A (numpy.ndarray): The output of the forward propagation.
+        """
         #X is a numpy.ndarray with shape (nx, m) that contains the input data
         # nx is the number of input features to the neuron
         # m is the number of examples
