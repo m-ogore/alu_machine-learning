@@ -31,13 +31,13 @@ class Neuron:
         return self.__b
 
     def A(self):
-        return self.__A
+        return self.__A    
 
     def forward_prop(self, X):
         z = np.matmul(self.__W, X) + self.__b
         self.__A = 1 / (1 + np.exp(-z))
         return self.__A
-        
+    
     def cost(self, Y, A):
         m = Y.shape[1]
         cost = -1 / m * np.sum(Y * np.log(A) + (1 - Y) * np.log(1.0000001 - A))
