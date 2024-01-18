@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import tensorflowas as tf
+import tensorflow as tf
 
 '''
 Write the function def create_placeholders(nx, classes): that returns two placeholders, x and y, 
