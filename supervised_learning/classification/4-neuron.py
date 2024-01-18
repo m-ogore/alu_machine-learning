@@ -61,6 +61,7 @@ class Neuron:
         - numpy.ndarray: Activated output of the neuron.
         """
         weighted_sum = np.dot(self.__W, X) + self.__b
+        #1/ 1+ Exponential to the power of the weighted sum
         self.__A = 1 / (1 + np.exp(-weighted_sum))
         return self.__A
     def cost(self, Y, A):
