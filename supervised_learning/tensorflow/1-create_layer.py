@@ -20,7 +20,4 @@ def create_layer(prev, n, activation):
 
     # Apply the layer to the previous tensor
     output = layer(prev)
-
-
-    
-    
+    return output
