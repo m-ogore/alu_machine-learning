@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+
+# disabling eager mode 
+tf.compat.v1.disable_eager_execution() 
 
 '''
 Write the function def create_placeholders(nx, classes): that returns two placeholders, x and y, 
