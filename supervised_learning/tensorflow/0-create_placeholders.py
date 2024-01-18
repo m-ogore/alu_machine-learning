@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #import tensorflow as tf
-import tensorflow.compat.v1 as tf
+import tensorflow as tf
 
 # disabling eager mode 
 tf.compat.v1.disable_eager_execution() 
@@ -16,6 +16,6 @@ x is the placeholder for the input data to the neural network
 y is the placeholder for the one-hot labels for the input data
 '''
 def create_placeholders(nx, classes):
-    x = tf.placeholder(tf.float32, [nx, None])
-    y = tf.placeholder(tf.float32, [classes, None]) 
+    x = tf.compat.v1.placeholder(tf.float32, [nx, None])
+    y = tf.compat.v1.placeholder(tf.float32, [classes, None]) 
     return x,y
