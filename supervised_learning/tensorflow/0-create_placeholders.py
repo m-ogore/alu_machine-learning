@@ -19,9 +19,8 @@ def create_placeholders(nx, classes):
     # classes: the number of classes in our classifier
     # x is the placeholder for the input data to the neural network
     # y is the placeholder for the one-hot labels for the input data
-    
-    x = tf.compat.v1.placeholder(tf.float32, shape=(nx))
-    y = tf.compat.v1.placeholder(tf.float32, shape = (classes))
 
-    print(x)
+    x = tf.compat.v1.placeholder(tf.float32, shape=(nx), name='x')
+    y = tf.compat.v1.placeholder(tf.float32, shape = (classes), name='y')
+
     return x,y
