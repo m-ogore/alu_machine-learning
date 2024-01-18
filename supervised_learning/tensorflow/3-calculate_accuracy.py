@@ -16,7 +16,7 @@ def calculate_accuracy(y, y_pred):
 
     # Calculate accuracy as the ratio of correct predictions to total predictions
     accuracy = tf.reduce_mean(tf.cast(correct_predictions, tf.float32))
-    #accuracy = tf.nn.softmax_cross_entropy_loss(labels = y, logits = y_pred)
+    
 
 
     return accuracy
