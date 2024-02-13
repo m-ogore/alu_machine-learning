@@ -1,21 +1,34 @@
 #!/usr/bin/env python3
 import numpy as np
 
-#Create the function to convolve
+'''
+    Write a function def convolve_grayscale_valid(images, kernel): that performs a valid convolution on grayscale images:
+
+    images is a numpy.ndarray with shape (m, h, w) containing multiple grayscale images
+    m is the number of images
+    h is the height in pixels of the images
+    w is the width in pixels of the images
+    kernel is a numpy.ndarray with shape (kh, kw) containing the kernel for the convolution
+    kh is the height of the kernel
+    kw is the width of the kernel
+    You are only allowed to use two for loops; any other loops of any kind are not allowed
+    Returns: a numpy.ndarray containing the convolved images
+'''
 def convolve_grayscale_valid(images, kernel):
-    #get a multidimensional array of m- number of images each with h*w number of elements in it
-    m, h, w = images.shape
-    #ther hernel isof dimensions of columns kh and rows kw
-    kh, kw = kernel.shape
-    # the number of strides to be taken vertically will be number of rowsof the image - number of rowsin the kernel
-    output_h = h - kh + 1
-    # the number of strides to be taken horizontally will be number of columns of the image - number of columnsin the kernel
-    output_w = w - kw + 1
-    output = np.zeros((m, output_h, output_w))
+    m =images.shape[0] 
+    h = images.shape[1]
+    w = images.shape[2]
+    
+    kh = kernel.shape[0]
+    kw = kernel.shape[1]
 
-    for i in range(output_h):
-        for j in range(output_w):
-            output[:, i, j] = np.sum(images[:, i:i+kh, j:j+kw] * kernel, axis=(1, 2))
+    convolved_image  = []
 
-    return output
-
+    for image in images:
+        for i in range(h-kh+1):
+            for j in range(w-kw+1):
+                image_region = image[i:i+kh, j:j+kw]
+                conv_el = np.sum(image_region*kernel)
+                    
+            convolved_image.append(conv_el)
+    return np.array(convolved_image)

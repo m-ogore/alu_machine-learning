@@ -7,8 +7,11 @@ convolve_grayscale_valid = __import__('0-convolve_grayscale_valid').convolve_gra
 
 if __name__ == '__main__':
 
-    dataset = np.load('../../supervised_learning/data/MNIST.npz')
-    images = dataset['X_train']
+    #dataset = np.load('../../supervised_learning/data/MNIST.npz') 
+    dataset = np.load('/home/seer/alu-machine_learning/supervised_learning/data/MNIST.npz')
+    keys = dataset.keys()
+    print("Keys in the archive:", keys)
+    images = dataset['x_train']
     print(images.shape)
     kernel = np.array([[1 ,0, -1], [1, 0, -1], [1, 0, -1]])
     images_conv = convolve_grayscale_valid(images, kernel)
