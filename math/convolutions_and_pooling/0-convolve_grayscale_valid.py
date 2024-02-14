@@ -30,5 +30,8 @@ def convolve_grayscale_valid(images, kernel):
                 image_region = image[i:i+kh, j:j+kw]
                 conv_el = np.sum(image_region*kernel)
                     
-            convolved_image.append(conv_el)
+            convolved_image[j].append(conv_el)
     return np.array(convolved_image)
+
+#https://www.kaggle.com/datasets/mustafaali96/mnistnpz?select=mnist.npz
+#https://stackoverflow.com/questions/2448015/2d-convolution-using-python-and-numpy
