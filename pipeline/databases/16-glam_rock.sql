@@ -12,6 +12,5 @@
 -- SELECT band_name, IFNULL(split, 2020) - IFNULL(formed, 0) AS lifespan
 
 
-SELECT band_name, IF(split IS NULL, 2020, split) - formed AS lifespan
-FROM metal_bands
-ORDER BY lifespan DESC
+SELECT band_name, IF(split IS NULL, 2020, split) - IF(formed IS NULL,0,formed) AS lifespan FROM me
+tal_bands ORDER BY lifespan DESC;
