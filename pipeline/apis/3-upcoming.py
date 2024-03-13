@@ -4,6 +4,12 @@ import requests
 from datetime import datetime
 
 def get_upcoming_launch():
+    """
+    Fetches the upcoming launch data from the SpaceX API.
+
+    Returns:
+        dict: The data of the upcoming launch.
+    """
     # Make a GET request to the SpaceX API to get upcoming launches
     response = requests.get("https://api.spacexdata.com/v4/launches/upcoming")
     # Convert the response to JSON format
@@ -13,6 +19,15 @@ def get_upcoming_launch():
     return upcoming_launch
 
 def format_launch_info(launch):
+    """
+    Formats the launch information into the specified format.
+
+    Args:
+        launch (dict): The data of the launch.
+
+    Returns:
+        str: The formatted launch information.
+    """
     # Extract relevant information from the launch data
     launch_name = launch['name']
     # Convert the Unix timestamp to UTC datetime and then format it
@@ -30,6 +45,9 @@ def format_launch_info(launch):
     return formatted_info
 
 def main():
+    """
+    Main function to fetch and display the upcoming launch information.
+    """
     # Get the upcoming launch data
     upcoming_launch = get_upcoming_launch()
     # Format the launch information
