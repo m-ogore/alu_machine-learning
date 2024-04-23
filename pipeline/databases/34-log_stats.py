@@ -29,7 +29,7 @@ if __name__ == "__main__":
     
     
     for method in methods:
-        print(f'\t method: {collection.count_documents({"method": method})}')
+        print(f'\t method {method}: {collection.count_documents({"method": method})}')
 
 
     print(f'{collection.count_documents({"method": "GET", "path": "/status"})} status check')
