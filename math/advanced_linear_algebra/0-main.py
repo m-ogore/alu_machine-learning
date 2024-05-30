@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 if __name__ == '__main__':
-    determinant = __import__('0-determinant').determinant
+    determinant = __import__('test').determinant
 
     mat0 = [[]]
     mat1 = [[5]]
